@@ -1,3 +1,5 @@
+import warnings
+
 from neo4j import GraphDatabase
 from colorama import Fore, Style
 
@@ -5,13 +7,16 @@ from colorama import Fore, Style
 class Database:
     def __init__(self):
         self.driver = None
+        warnings.filterwarnings("ignore")
 
     def connect(self, uri, user, password):
+        self.driver = GraphDatabase.driver(uri, auth=(user, password))
         try:
-            self.driver = GraphDatabase.driver(uri, auth=(user, password))
+            self.driver.verify_connectivity()
             print(Fore.GREEN, 'Connected to database.', Fore.WHITE)
         except Exception as e:
-            print(Fore.RED, 'Failed to create the driver : ', e, Fore.WHITE)
+            print(Fore.RED, 'Error : cannot connect to db. Run "config update", "config create" or "db connect".', Fore.WHITE)
+            self.driver = None
 
     def disconnect(self):
         if self.status():
@@ -19,10 +24,7 @@ class Database:
             self.driver = None
 
     def query(self, query):
-        if not self.status():
-            print(Fore.RED, 'Not connected to database. \
-                  Need to use "db connect"!', Fore.WHITE)
-        else:
+        if self.status():
             session = None
             response = None
             try:
@@ -33,7 +35,10 @@ class Database:
             return response, session
 
     def status(self):
-        if self.driver is None:
-            return False
-        else:
+        try:
+            self.driver.verify_connectivity()
             return True
+        except Exception as e:
+            print(Fore.RED, 'Error : verify database configuration. Run "config update", "config create" or "db connect".', Fore.WHITE)
+            self.driver = None
+            return False
