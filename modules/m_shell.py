@@ -91,6 +91,7 @@ class Shell(cmd.Cmd):
             action = args[0]
             if action == 'create':
                 self.conf.create()
+                self.driver.connect(self.conf.uri, self.conf.user, self.conf.password)
             elif action == 'delete':
                 self.conf.delete()
             elif action == 'verify':
@@ -113,6 +114,8 @@ class Shell(cmd.Cmd):
                         self.conf.update('password')
                     else:
                         print(Fore.RED,'Unrecognized parameter. Expected: all|uri|user|password',Fore.WHITE)
+                    self.driver.disconnect()
+                    self.driver.connect(self.conf.uri, self.conf.user, self.conf.password)
             else:
                 print(Fore.RED,'Unrecognized action. Expected: create|delete|verify|update',Fore.WHITE)
 
@@ -123,20 +126,18 @@ class Shell(cmd.Cmd):
         else:
             action = args[0]
             if action == 'connect':
-                if not self.driver.status():
+                if self.driver.driver:
                     self.driver.connect(self.conf.uri, self.conf.user, self.conf.password)
                 else:
                     print(Fore.BLUE,'Already connected to database',Fore.WHITE)
             elif action == 'disconnect':
-                if self.driver.status():
+                if self.driver.driver:
                     self.driver.disconnect()
                 else:
                     print(Fore.BLUE,'Already disconnected from database',Fore.WHITE)
             elif action == 'status':
                 if self.driver.status():
                     print(Fore.GREEN,'Connected to database',Fore.WHITE)
-                else:
-                    print(Fore.RED,'Not connected to database. Need to run "db connect"',Fore.WHITE)
 
     def do_admin(self,line):
         m_admins.Admins().process(self.driver,line)

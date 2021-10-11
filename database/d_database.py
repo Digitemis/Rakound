@@ -10,16 +10,16 @@ class Database:
         warnings.filterwarnings("ignore")
 
     def connect(self, uri, user, password):
-        self.driver = GraphDatabase.driver(uri, auth=(user, password))
         try:
+            self.driver = GraphDatabase.driver(uri, auth=(user, password))
             self.driver.verify_connectivity()
             print(Fore.GREEN, 'Connected to database.', Fore.WHITE)
         except Exception as e:
-            print(Fore.RED, 'Error : cannot connect to db. Run "config update", "config create" or "db connect".', Fore.WHITE)
+            print(Fore.RED, '1Error : cannot connect to db. Run "config update", "config create" or "db connect".', Fore.WHITE)
             self.driver = None
 
     def disconnect(self):
-        if self.status():
+        if self.driver:
             self.driver.close()
             self.driver = None
 
@@ -40,5 +40,4 @@ class Database:
             return True
         except Exception as e:
             print(Fore.RED, 'Error : verify database configuration. Run "config update", "config create" or "db connect".', Fore.WHITE)
-            self.driver = None
             return False
