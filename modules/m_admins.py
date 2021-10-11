@@ -12,8 +12,6 @@ class Admins():
     def process(self, driver, line):
         args = line.split()
         if not driver.status():
-            print(Fore.RED, 'Not connected to database. \
-                  Need to run "db connect"', Fore.WHITE)
             return
         if len(args) < 1:
             print(Fore.RED, 'Missing action : \
