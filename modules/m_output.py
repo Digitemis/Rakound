@@ -15,6 +15,7 @@ class Output():
         count = 0
         table = PrettyTable(hrules=prettytable.ALL)
         table.field_names = self.keys
+        table.max_width = 100
         for data in self.results:
             for key in self.keys:
                 if type(data[key]) is list:
