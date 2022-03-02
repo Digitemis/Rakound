@@ -14,8 +14,15 @@ class Search():
             return
         if len(args) < 1:
             print(Fore.RED,'Missing action : user|computer|password',Fore.WHITE)
-        elif len(args) < 3 and args[1] != 'empty' and args[1] != 'lm':
-            print(Fore.RED,'Missing filter or/and term : is|like <term> / empty (only for password)',Fore.WHITE)
+        elif len(args) < 2:
+            if args[0] == 'user' or args[0] == 'computer' or args[0] == 'user=enabled' or args[0] == 'computer=enabled':
+                print(Fore.RED,'Missing filter: is|like',Fore.WHITE)
+            elif args[0] == 'password' or args[0] == 'password=enabled':
+                print(Fore.RED,'Missing filter: is|like|lm|empty|user_as_pass',Fore.WHITE)
+            else:
+                print(Fore.RED,'Invalid action. Expected: user|computer|password',Fore.WHITE)
+        elif len(args) < 3 and args[1] != 'empty' and args[1] != 'lm' and args[1] != 'user_as_pass':
+            print(Fore.RED,'Missing term : is <term>|like <term>',Fore.WHITE)
         else:
             action = args[0]
             filter = args[1]
