@@ -35,8 +35,9 @@ computer_actions = [ "laps", "obsolete" ]
 stats_actions = [ "password", "password=enabled" ]
 stats_password_parameters = [ "user", "admin", "all" ]
 
-search_actions = [ "user", "user=enabled", "password", "password=enabled", "computer" ]
+search_actions = [ "user", "user=enabled", "password", "password=enabled", "computer", "description" ]
 search_password_parameters = [ "is", "like", "empty", "lm", "user_as_pass" ]
+search_description_parameters = [ "is", "like", "non_empty" ]
 search_parameters = [ "is", "like" ]
 
 class Shell(cmd.Cmd):
@@ -291,6 +292,8 @@ class Shell(cmd.Cmd):
         if level >= 2:
             if words[1] == 'password' or words[1] == 'password=enabled':
                 return self.__complete_from_list(text, search_password_parameters)
+            elif words[1] == 'description':
+                return self.__complete_from_list(text, search_description_parameters)
             else:
                 return self.__complete_from_list(text, search_parameters)
         if level == 1:

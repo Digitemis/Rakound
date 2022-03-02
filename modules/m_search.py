@@ -19,9 +19,11 @@ class Search():
                 print(Fore.RED,'Missing filter: is|like',Fore.WHITE)
             elif args[0] == 'password' or args[0] == 'password=enabled':
                 print(Fore.RED,'Missing filter: is|like|lm|empty|user_as_pass',Fore.WHITE)
+            elif args[0] == 'description':
+                print(Fore.RED,'Missing filter: is|like|non_empty',Fore.WHITE)
             else:
-                print(Fore.RED,'Invalid action. Expected: user|computer|password',Fore.WHITE)
-        elif len(args) < 3 and args[1] != 'empty' and args[1] != 'lm' and args[1] != 'user_as_pass':
+                print(Fore.RED,'Invalid action. Expected: user|computer|password|description',Fore.WHITE)
+        elif len(args) < 3 and args[1] != 'empty' and args[1] != 'lm' and args[1] != 'user_as_pass' and args[1] != 'non_empty':
             print(Fore.RED,'Missing term : is <term>|like <term>',Fore.WHITE)
         else:
             action = args[0]
@@ -173,5 +175,32 @@ class Search():
                     session.close()
                 else:
                     print(Fore.RED,'Unrecognized filter. Expected: is|like',Fore.WHITE)
+            elif action == 'description':
+                if filter == 'is':
+                    resultSet,session = driver.query(q_search.Search().searchDescription("is",term.translate(str.maketrans({'\\': r'\\', '"': r'\"'}))))
+                    output = q_output.Output(resultSet)
+                    output.printTable()
+                    if len(args) > 3:
+                        if "export" in args[3:]:
+                            output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_description.csv')
+                    session.close()
+                elif filter == 'like':
+                    resultSet,session = driver.query(q_search.Search().searchDescription("like",term.translate(str.maketrans({'\\': r'\\\\', '\'': r'\\\'', '*': r'\\*', '.': r'\\.', '~': '\\\~', '+': r'\\+', '-': r'\\-', '?': r'\\?', '!': r'\\!', '[': r'\\[', ']': r'\\]', '{': r'\\{', '}': r'\\}', '(': r'\\(', ')': r'\\)', '|': r'\\|', '^': r'\\^', '$': r'\\$'}))))
+                    output = q_output.Output(resultSet)
+                    output.printTable()
+                    if len(args) > 3:
+                        if "export" in args[3:]:
+                            output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_description.csv')
+                    session.close()
+                elif filter == 'non_empty':
+                    resultSet,session = driver.query(q_search.Search().searchDescription("non_empty",None))
+                    output = q_output.Output(resultSet)
+                    output.printTable()
+                    if len(args) > 3:
+                        if "export" in args[3:]:
+                            output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_description.csv')
+                    session.close()
+                else:
+                    print(Fore.RED,'Unrecognized filter. Expected: is|like|non_empty',Fore.WHITE)
             else:
                 print(Fore.RED,'Unrecognized action. Expected: user|password|computer',Fore.WHITE)
