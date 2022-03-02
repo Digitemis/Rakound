@@ -15,7 +15,7 @@ class Search():
         if len(args) < 1:
             print(Fore.RED,'Missing action : user|computer|password',Fore.WHITE)
         elif len(args) < 2:
-            if args[0] == 'user' or args[0] == 'computer' or args[0] == 'user=enabled' or args[0] == 'computer=enabled':
+            if args[0] == 'user' or args[0] == 'computer' or args[0] == 'user=enabled':
                 print(Fore.RED,'Missing filter: is|like',Fore.WHITE)
             elif args[0] == 'password' or args[0] == 'password=enabled':
                 print(Fore.RED,'Missing filter: is|like|lm|empty|user_as_pass',Fore.WHITE)
@@ -138,5 +138,24 @@ class Search():
                     session.close()
                 else:
                     print(Fore.RED,'Unrecognized filter. Expected: is|like|empty',Fore.WHITE)
+            elif action == 'computer':
+                if filter == 'is':
+                    resultSet,session = driver.query(q_search.Search().searchComputer("is",term.translate(str.maketrans({'\\': r'\\', '"': r'\"'}))))
+                    output = q_output.Output(resultSet)
+                    output.printTable()
+                    if len(args) > 3:
+                        if "export" in args[3:]:
+                            output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_computer.csv')
+                    session.close()
+                elif filter == 'like':
+                    resultSet,session = driver.query(q_search.Search().searchComputer("like",term.translate(str.maketrans({'\\': r'\\\\', '\'': r'\\\'', '*': r'\\*', '.': r'\\.', '~': '\\\~', '+': r'\\+', '-': r'\\-', '?': r'\\?', '!': r'\\!', '[': r'\\[', ']': r'\\]', '{': r'\\{', '}': r'\\}', '(': r'\\(', ')': r'\\)', '|': r'\\|', '^': r'\\^', '$': r'\\$'}))))
+                    output = q_output.Output(resultSet)
+                    output.printTable()
+                    if len(args) > 3:
+                        if "export" in args[3:]:
+                            output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_computer.csv')
+                    session.close()
+                else:
+                    print(Fore.RED,'Unrecognized filter. Expected: is|like',Fore.WHITE)
             else:
                 print(Fore.RED,'Unrecognized action. Expected: user|password|computer',Fore.WHITE)

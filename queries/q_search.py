@@ -9,6 +9,12 @@ class Search:
         elif filter == 'enabled' and operator == 'is':
             return "MATCH (u:User)-[r:MemberOf]->(g:Group) WHERE g.objectid =~ '(?i)S-1-5-.*-518' OR g.objectid =~ '(?i)S-1-5-.*-512' OR g.objectid =~ '(?i)S-1-5-.*-519' WITH COLLECT(u.name) as admins MATCH (u:User) OPTIONAL MATCH p=(u:User)-[r:AdminTo]->(c:Computer) WITH u,c,admins WHERE u.name =~ '(?i)"+term+"@.*' AND u.enabled = True RETURN u.name as account, case WHEN u.name IN admins then 'admin' else 'user' end as type, u.cracked_password as password, u.description as description, u.enabled as status, COLLECT(DISTINCT(c.name)) as computers"
 
+    def searchComputer(self,operator,term):
+        if operator == 'like':
+            return "MATCH (c:Computer) WHERE c.name =~ '(?i).*"+term+".*' WITH COLLECT(c.name) AS computers MATCH (u:User)-[:AdminTo]->(c:Computer) WHERE c.name IN computers RETURN DISTINCT(c.name) as computers, c.operatingsystem as os, c.description as description, c.haslaps as LAPS, COLLECT(u.name) as localAdmins"
+        elif operator == 'is':
+            return "MATCH (c:Computer) WHERE c.name =~ '(?i)"+term+"..*' WITH COLLECT(c.name) AS computers MATCH (u:User)-[:AdminTo]->(c:Computer) WHERE c.name IN computers RETURN DISTINCT(c.name) as computers, c.operatingsystem as os, c.description as description, c.haslaps as LAPS, COLLECT(u.name) as localAdmins"
+        
     def searchPassword(self,filter,operator,term):
         if filter == 'all' and operator == 'like':
             return "MATCH (u:User)-[r:MemberOf]->(g:Group) WHERE g.objectid =~ '(?i)S-1-5-.*-518' OR g.objectid =~ '(?i)S-1-5-.*-512' OR g.objectid =~ '(?i)S-1-5-.*-519' WITH COLLECT(u.name) as admins MATCH (u:User) OPTIONAL MATCH p=(u:User)-[r:AdminTo]->(c:Computer) WITH u,c,admins WHERE u.cracked_password =~ '(?i).*"+term+".*' RETURN u.name as account, case WHEN u.name IN admins then 'admin' else 'user' end as type, u.cracked_password as password, u.description as description, u.enabled as status, COLLECT(DISTINCT(c.name)) as computers"
