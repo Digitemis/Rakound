@@ -101,8 +101,16 @@ class Search():
                         if "export" in args[2:]:
                             output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_password_all_lm.csv')
                     session.close()
+                elif filter == 'user_as_pass':
+                    resultSet,session = driver.query(q_search.Search().searchPassword("all","user_as_pass",None))
+                    output = q_output.Output(resultSet)
+                    output.printTable()
+                    if len(args) > 2:
+                        if "export" in args[2:]:
+                            output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_password_all_useraspass.csv')
+                    session.close()
                 else:
-                    print(Fore.RED,'Unrecognized filter. Expected: is|like|empty',Fore.WHITE)
+                    print(Fore.RED,'Unrecognized filter. Expected: is|like|empty|lm|user_as_pass',Fore.WHITE)
             elif action == 'password=enabled':
                 if filter == 'is':
                     resultSet,session = driver.query(q_search.Search().searchPassword("enabled","is",term.translate(str.maketrans({'\\': r'\\', '\'': r'\\\''}))))
@@ -136,8 +144,16 @@ class Search():
                         if "export" in args[2:]:
                             output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_password_enabled_lm.csv')
                     session.close()
+                elif filter == 'user_as_pass':
+                    resultSet,session = driver.query(q_search.Search().searchPassword("enabled","user_as_pass",None))
+                    output = q_output.Output(resultSet)
+                    output.printTable()
+                    if len(args) > 2:
+                        if "export" in args[2:]:
+                            output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_password_enabled_useraspass.csv')
+                    session.close()
                 else:
-                    print(Fore.RED,'Unrecognized filter. Expected: is|like|empty',Fore.WHITE)
+                    print(Fore.RED,'Unrecognized filter. Expected: is|like|empty|lm|user_as_pass',Fore.WHITE)
             elif action == 'computer':
                 if filter == 'is':
                     resultSet,session = driver.query(q_search.Search().searchComputer("is",term.translate(str.maketrans({'\\': r'\\', '"': r'\"'}))))
