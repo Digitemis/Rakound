@@ -177,10 +177,10 @@ This directive finds descriptions containing the searched term.
 
     🦝 > search description like pass
 
-non_empty
+not_empty
 ^^^^^^^^^
-This directive finds all non empty descriptions.
+This directive finds all not empty descriptions.
 
 .. code-block:: none
 
-    🦝 > search description non_empty
+    🦝 > search description not_empty
