@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="Explore Bloodhound data" lang="en" name="description" xml:lang="en" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rakound &mdash; Rakound  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation/install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Rakound
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Installation &amp; Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation/run.html">Get started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/all.html">All modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/db.html">Module: db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/config.html">Module: config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/admin.html">Module: admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/user.html">Module: user</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/computer.html">Module: computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/password.html">Module: password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/import.html">Module: import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/search.html">Module: search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/stats.html">Module: stats</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Rakound</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Rakound</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rakound">
+<h1>Rakound<a class="headerlink" href="#rakound" title="Permalink to this headline"></a></h1>
+<a class="reference internal image-reference" href="_images/Rakound_logo.png"><img alt="Rakound logo" class="align-center" src="_images/Rakound_logo.png" style="width: 300px;" /></a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Rakound is a tool written in Python. Its main goal is to simplify vizualisation of
+Bloodhound data. It allows to access insignificant data, such as passwords, stored
+in Active Directory. The tool is provided with various queries in order to retrieve
+valuable data.</p>
+<p>Moreover, cracked passwords (via JohnTheRipper) and hashes (via Impacket Secretsdump)
+can be imported to modify abuse paths and perform statistics.</p>
+<p>Rakound needs Bloodhound data to perform queries. <strong>It is not packaged to collect data
+by itself.</strong></p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
+<p>Rakound needs the following requirements to work:</p>
+<ul class="simple">
+<li><p>Neo4j database</p></li>
+<li><p>Python3</p></li>
+<li><p>Bloodhound data</p></li>
+</ul>
+</section>
+<section id="tool">
+<h2>Tool<a class="headerlink" href="#tool" title="Permalink to this headline"></a></h2>
+<p>Rakound is available on Digitemis’ Github: <a class="reference external" href="https://github.com/Digitemis/Rakound">https://github.com/Digitemis/Rakound</a></p>
+</section>
+<section id="improvements-bugs">
+<h2>Improvements &amp; Bugs<a class="headerlink" href="#improvements-bugs" title="Permalink to this headline"></a></h2>
+<p>If you discover some bugs or want some new features, please submit them directly on
+the Github page.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation/install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Digitemis Cybersecurity &amp; Privacy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

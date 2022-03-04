@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module: search &mdash; Rakound  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module: stats" href="stats.html" />
+    <link rel="prev" title="Module: import" href="import.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Rakound
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Installation &amp; Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/run.html">Get started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="all.html">All modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Module: db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Module: config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin.html">Module: admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">Module: user</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Module: computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="password.html">Module: password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import.html">Module: import</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module: search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#search-password">search password</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#is">is</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#like">like</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lm">lm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user-as-pass">user_as_pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#empty">empty</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#search-user">search user</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">is</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">like</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#search-computer">search computer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">is</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">like</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#search-description">search description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">is</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">like</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#non-empty">non_empty</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Module: stats</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rakound</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Module: search</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/search.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-search">
+<span id="search-module"></span><h1>Module: search<a class="headerlink" href="#module-search" title="Permalink to this headline"></a></h1>
+<p>This module is used to search information in the neo4j database.</p>
+<p>General usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search &lt;submodule&gt; &lt;filter&gt; &lt;term&gt;
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The provided search term must be a single word. You can’t use
+this module to search for a complete sentence containing spaces.</p>
+</div>
+<p>Results can be exported to a csv file using the keyword “<strong>export</strong>”
+at the end of the command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search &lt;submodule&gt; &lt;filter&gt; &lt;term&gt; export
+</pre></div>
+</div>
+<p>A csv file will be generated in “<strong>exports</strong>” directory.</p>
+<section id="search-password">
+<h2>search password<a class="headerlink" href="#search-password" title="Permalink to this headline"></a></h2>
+<p>This module operates search on passwords.</p>
+<p>General usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search password &lt;filter&gt; [term]
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search password=enabled &lt;filter&gt; [term]
+</pre></div>
+</div>
+<section id="is">
+<h3>is<a class="headerlink" href="#is" title="Permalink to this headline"></a></h3>
+<p>This directive finds passwords corresponding to the searched term.
+<strong>It is case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search password is P@ssw0rd
+</pre></div>
+</div>
+</section>
+<section id="like">
+<h3>like<a class="headerlink" href="#like" title="Permalink to this headline"></a></h3>
+<p>This directive finds passwords containing the searched term.
+<strong>It is not case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search password like QwErTy
+</pre></div>
+</div>
+</section>
+<section id="lm">
+<h3>lm<a class="headerlink" href="#lm" title="Permalink to this headline"></a></h3>
+<p>This directive finds passwords using LM storage.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search password lm
+</pre></div>
+</div>
+</section>
+<section id="user-as-pass">
+<h3>user_as_pass<a class="headerlink" href="#user-as-pass" title="Permalink to this headline"></a></h3>
+<p>This directive finds passwords equal to username.
+<strong>It is not case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search password user_as_pass
+</pre></div>
+</div>
+</section>
+<section id="empty">
+<h3>empty<a class="headerlink" href="#empty" title="Permalink to this headline"></a></h3>
+<p>This directive finds empty passwords.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search password empty
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend to use this directive with “<strong>password=enabled</strong>”
+to see only enabled users with empty password.</p>
+</div>
+</section>
+</section>
+<section id="search-user">
+<h2>search user<a class="headerlink" href="#search-user" title="Permalink to this headline"></a></h2>
+<p>This module operates search on users.</p>
+<p>General usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search user &lt;filter&gt; [term]
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search user=enabled &lt;filter&gt; [term]
+</pre></div>
+</div>
+<section id="id1">
+<h3>is<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<p>This directive finds users corresponding to the searched term.
+<strong>It is case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search user is user1
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>like<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<p>This directive finds users containing the searched term.
+<strong>It is not case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search user like adm
+</pre></div>
+</div>
+</section>
+</section>
+<section id="search-computer">
+<h2>search computer<a class="headerlink" href="#search-computer" title="Permalink to this headline"></a></h2>
+<p>This module operates search on computers.</p>
+<p>General usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search computer &lt;filter&gt; &lt;term&gt;
+</pre></div>
+</div>
+<section id="id3">
+<h3>is<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<p>This directive finds computers corresponding to the searched term.
+<strong>It is case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search computer is SRV01
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h3>like<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<p>This directive finds computers containing the searched term.
+<strong>It is not case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search computer like SRV
+</pre></div>
+</div>
+</section>
+</section>
+<section id="search-description">
+<h2>search description<a class="headerlink" href="#search-description" title="Permalink to this headline"></a></h2>
+<p>This module operates search on description field.</p>
+<p>General usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search description &lt;filter&gt; [term]
+</pre></div>
+</div>
+<section id="id5">
+<h3>is<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<p>This directive finds descriptions corresponding to the searched term.
+<strong>It is case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search description is testsecret
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>like<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<p>This directive finds descriptions containing the searched term.
+<strong>It is not case sensitive</strong>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search description like pass
+</pre></div>
+</div>
+</section>
+<section id="non-empty">
+<h3>non_empty<a class="headerlink" href="#non-empty" title="Permalink to this headline"></a></h3>
+<p>This directive finds all non empty descriptions.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; search description non_empty
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="import.html" class="btn btn-neutral float-left" title="Module: import" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stats.html" class="btn btn-neutral float-right" title="Module: stats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Digitemis Cybersecurity &amp; Privacy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

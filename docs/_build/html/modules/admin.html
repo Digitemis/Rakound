@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module: admin &mdash; Rakound  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module: user" href="user.html" />
+    <link rel="prev" title="Module: config" href="config.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Rakound
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Installation &amp; Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/run.html">Get started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="all.html">All modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Module: db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Module: config</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module: admin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#admin-domain">admin domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-enterprise">admin enterprise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-schema">admin schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-accountoperators">admin accountOperators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-administrators">admin administrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-backupoperators">admin backupOperators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-printoperators">admin printOperators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-replicators">admin replicators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-serveroperators">admin serverOperators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-adminsdholder">admin adminSDHolder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#admin-passwordneverexpires">admin passwordneverexpires</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">Module: user</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Module: computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="password.html">Module: password</a></li>
+<li class="toctree-l1"><a class="reference internal" href="import.html">Module: import</a></li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Module: search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Module: stats</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rakound</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Module: admin</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/admin.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-admin">
+<span id="admin-module"></span><h1>Module: admin<a class="headerlink" href="#module-admin" title="Permalink to this headline"></a></h1>
+<p>This module is used to query data about privileged accounts.</p>
+<p>General usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin &lt;submodule&gt;[=enabled]
+</pre></div>
+</div>
+<p>Results can be exported to a csv file using the keyword “<strong>export</strong>”
+at the end of the command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin &lt;submodule&gt; export
+</pre></div>
+</div>
+<p>A csv file will be generated in “<strong>exports</strong>” directory.</p>
+<section id="admin-domain">
+<h2>admin domain<a class="headerlink" href="#admin-domain" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “domain admins” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin domain
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin domain=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-enterprise">
+<h2>admin enterprise<a class="headerlink" href="#admin-enterprise" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “enterprise admins” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin enterprise
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin enterprise=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-schema">
+<h2>admin schema<a class="headerlink" href="#admin-schema" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “schema admins” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin schema
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin schema=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-accountoperators">
+<h2>admin accountOperators<a class="headerlink" href="#admin-accountoperators" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “account operators” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin accountOperators
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin accountOperators=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-administrators">
+<h2>admin administrators<a class="headerlink" href="#admin-administrators" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “administrators” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin administrators
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin administrators=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-backupoperators">
+<h2>admin backupOperators<a class="headerlink" href="#admin-backupoperators" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “backup operators” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin backupOperators
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin backupOperators=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-printoperators">
+<h2>admin printOperators<a class="headerlink" href="#admin-printoperators" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “print operators” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin printOperators
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin printOperators=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-replicators">
+<h2>admin replicators<a class="headerlink" href="#admin-replicators" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “replicators” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin replicators
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin replicators=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-serveroperators">
+<h2>admin serverOperators<a class="headerlink" href="#admin-serveroperators" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all members of “server operators” group.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin serverOperators
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin serverOperators=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-adminsdholder">
+<h2>admin adminSDHolder<a class="headerlink" href="#admin-adminsdholder" title="Permalink to this headline"></a></h2>
+<p>This submodule lists membership of all previous groups.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin adminSDHolder
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin adminSDHolder=enabled
+</pre></div>
+</div>
+</section>
+<section id="admin-passwordneverexpires">
+<h2>admin passwordneverexpires<a class="headerlink" href="#admin-passwordneverexpires" title="Permalink to this headline"></a></h2>
+<p>This submodule finds all privileged users with a password
+that never expires.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin passwordneverexpires
+</pre></div>
+</div>
+<p>To filter by enabled users, “<strong>=enabled</strong>” must be used:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; admin passwordneverexpires=enabled
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="config.html" class="btn btn-neutral float-left" title="Module: config" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user.html" class="btn btn-neutral float-right" title="Module: user" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Digitemis Cybersecurity &amp; Privacy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

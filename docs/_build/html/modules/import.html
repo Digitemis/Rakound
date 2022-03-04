@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module: import &mdash; Rakound  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Module: search" href="search.html" />
+    <link rel="prev" title="Module: password" href="password.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Rakound
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Installation &amp; Configuration</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/config.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation/run.html">Get started</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="all.html">All modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="db.html">Module: db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config.html">Module: config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin.html">Module: admin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">Module: user</a></li>
+<li class="toctree-l1"><a class="reference internal" href="computer.html">Module: computer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="password.html">Module: password</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Module: import</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#import-ntlm">import ntlm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-cracked">import cracked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="search.html">Module: search</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Module: stats</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Rakound</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Module: import</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/import.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-import">
+<span id="import-module"></span><h1>Module: import<a class="headerlink" href="#module-import" title="Permalink to this headline"></a></h1>
+<p>This module is used to import password files.</p>
+<p>General usage:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; import &lt;submodule&gt; &lt;/path/to/file&gt;
+</pre></div>
+</div>
+<section id="import-ntlm">
+<h2>import ntlm<a class="headerlink" href="#import-ntlm" title="Permalink to this headline"></a></h2>
+<p>This submodule imports NTLM hashes.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; import ntlm &lt;/path/to/file&gt;
+</pre></div>
+</div>
+<p>Imported file must be formated as follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">Administrateur</span><span class="p">:</span><span class="mi">500</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">Guest</span><span class="p">:</span><span class="mi">501</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="mi">31</span><span class="n">d6cfe0d16ae931b73c59d7e0c089c0</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">krbtgt</span><span class="p">:</span><span class="mi">502</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">user1</span><span class="p">:</span><span class="mi">1001</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">user2</span><span class="p">:</span><span class="mi">1002</span><span class="p">:</span><span class="mi">921988</span><span class="n">ba001dc8e14a3b108f3fa6cb6d</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">user3</span><span class="p">:</span><span class="mi">1003</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">user4</span><span class="p">:</span><span class="mi">1004</span><span class="p">:</span><span class="mi">921988</span><span class="n">ba001dc8e14a3b108f3fa6cb6d</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using Impacket Secretsdump to dump “NTDS.dit” will provide the attended format.</p>
+</div>
+<p>This submodule adds two property keys to users and/or computers:</p>
+<ul class="simple">
+<li><p><strong>ntlm</strong>: contains the given NTLM hash</p></li>
+<li><p><strong>lm</strong>: set to true if LM is used in NTLM hash, false if not used</p></li>
+</ul>
+</section>
+<section id="import-cracked">
+<h2>import cracked<a class="headerlink" href="#import-cracked" title="Permalink to this headline"></a></h2>
+<p>This submodule imports cracked passwords.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>🦝 &gt; import cracked &lt;/path/to/file&gt;
+</pre></div>
+</div>
+<p>Imported file must be formated as follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">Administrateur</span><span class="p">:</span><span class="n">P</span><span class="nd">@ssw0rd</span><span class="p">:</span><span class="mi">500</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">Guest</span><span class="p">::</span><span class="mi">501</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="mi">31</span><span class="n">d6cfe0d16ae931b73c59d7e0c089c0</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">krbtgt</span><span class="p">:</span><span class="n">P</span><span class="nd">@ssw0rd</span><span class="p">:</span><span class="mi">502</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">user1</span><span class="p">:</span><span class="n">P</span><span class="nd">@ssw0rd</span><span class="p">:</span><span class="mi">1001</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">user2</span><span class="p">:</span><span class="n">P</span><span class="nd">@ssw0rd</span><span class="p">:</span><span class="mi">1002</span><span class="p">:</span><span class="mi">921988</span><span class="n">ba001dc8e14a3b108f3fa6cb6d</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">user3</span><span class="p">:</span><span class="n">P</span><span class="nd">@ssw0rd</span><span class="p">:</span><span class="mi">1003</span><span class="p">:</span><span class="n">aad3b435b51404eeaad3b435b51404ee</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+<span class="n">DOMAIN</span><span class="o">.</span><span class="n">local</span>\<span class="n">user4</span><span class="p">:</span><span class="n">P</span><span class="nd">@ssw0rd</span><span class="p">:</span><span class="mi">1004</span><span class="p">:</span><span class="mi">921988</span><span class="n">ba001dc8e14a3b108f3fa6cb6d</span><span class="p">:</span><span class="n">e19ccf75ee54e06b06a5907af13cef42</span><span class="p">:::</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>JohnTheRipper output (<em>john –show –format=NT NTDS.dit</em>) will provide the attended format.</p>
+</div>
+<p>This submodule adds a property key to users and/or computers:</p>
+<ul class="simple">
+<li><p><strong>cracked_password</strong>: contains the cleartext of cracked password</p></li>
+</ul>
+<p>For all cracked passwords, the corresponding object is set as owned (owned = True).
+This allows to use the following pre-built queries in Bloodhound:</p>
+<ul class="simple">
+<li><p>“Shortest Path from Owned Principals”</p></li>
+<li><p>“Shortest Paths to Domain Admins from Owned Principals”</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="password.html" class="btn btn-neutral float-left" title="Module: password" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="search.html" class="btn btn-neutral float-right" title="Module: search" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Digitemis Cybersecurity &amp; Privacy.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
