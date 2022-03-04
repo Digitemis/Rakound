@@ -37,7 +37,7 @@ stats_password_parameters = [ "user", "admin", "all" ]
 
 search_actions = [ "user", "user=enabled", "password", "password=enabled", "computer", "description" ]
 search_password_parameters = [ "is", "like", "empty", "lm", "user_as_pass" ]
-search_description_parameters = [ "is", "like", "non_empty" ]
+search_description_parameters = [ "is", "like", "not_empty" ]
 search_parameters = [ "is", "like" ]
 
 class Shell(cmd.Cmd):

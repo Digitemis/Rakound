@@ -42,5 +42,5 @@ class Search:
             return "MATCH (b:Base) WHERE NOT last(labels(b)) = 'Group' AND NOT last(labels(b)) = 'OU' AND b.description =~ '(?i).*"+term+".*' RETURN b.name as name, b.description as description, last(labels(b)) as type, b.cracked_password as password"
         elif operator == 'is':
             return "MATCH (b:Base) WHERE NOT last(labels(b)) = 'Group' AND NOT last(labels(b)) = 'OU' AND b.description =~ '(?i)"+term+"' RETURN b.name as name, b.description as description, last(labels(b)) as type, b.cracked_password as password"
-        elif operator == 'non_empty':
+        elif operator == 'not_empty':
             return "MATCH (b:Base) WHERE NOT last(labels(b)) = 'Group' AND NOT last(labels(b)) = 'OU' AND NOT b.description IS NULL RETURN b.name as name, b.description as description, last(labels(b)) as type, b.cracked_password as password"

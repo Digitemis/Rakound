@@ -20,10 +20,10 @@ class Search():
             elif args[0] == 'password' or args[0] == 'password=enabled':
                 print(Fore.RED,'Missing filter: is|like|lm|empty|user_as_pass',Fore.WHITE)
             elif args[0] == 'description':
-                print(Fore.RED,'Missing filter: is|like|non_empty',Fore.WHITE)
+                print(Fore.RED,'Missing filter: is|like|not_empty',Fore.WHITE)
             else:
                 print(Fore.RED,'Invalid action. Expected: user|computer|password|description',Fore.WHITE)
-        elif len(args) < 3 and args[1] != 'empty' and args[1] != 'lm' and args[1] != 'user_as_pass' and args[1] != 'non_empty':
+        elif len(args) < 3 and args[1] != 'empty' and args[1] != 'lm' and args[1] != 'user_as_pass' and args[1] != 'not_empty':
             print(Fore.RED,'Missing term : is <term>|like <term>',Fore.WHITE)
         else:
             action = args[0]
@@ -192,8 +192,8 @@ class Search():
                         if "export" in args[3:]:
                             output.createCSV(datetime.datetime.now().strftime('%Y%m%d-%H%M_')+'search_description.csv')
                     session.close()
-                elif filter == 'non_empty':
-                    resultSet,session = driver.query(q_search.Search().searchDescription("non_empty",None))
+                elif filter == 'not_empty':
+                    resultSet,session = driver.query(q_search.Search().searchDescription("not_empty",None))
                     output = q_output.Output(resultSet)
                     output.printTable()
                     if len(args) > 3:
