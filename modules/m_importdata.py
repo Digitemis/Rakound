@@ -65,9 +65,9 @@ class Import:
                                 else:
                                     computer = userdata[1]+"."+domain[loop]
                                 if "aad3b435b51404eeaad3b435b51404ee" not in lm_hash:
-                                    resultSet,session = driver.query('MATCH (c:Computer) where c.name = "'+computer.upper()+'" SET c.lm = True, u.ntlm = "'+ntlm_hash+'" RETURN c.name as name')
+                                    resultSet,session = driver.query('MATCH (c:Computer) where c.name = "'+computer.upper()+'" SET c.lm = True, c.ntlm = "'+ntlm_hash+'" RETURN c.name as name')
                                 else:
-                                    resultSet,session = driver.query('MATCH (c:Computer) where c.name = "'+computer.upper()+'" SET c.lm = False, u.ntlm = "'+ntlm_hash+'" RETURN c.name as name')
+                                    resultSet,session = driver.query('MATCH (c:Computer) where c.name = "'+computer.upper()+'" SET c.lm = False, c.ntlm = "'+ntlm_hash+'" RETURN c.name as name')
                                 for record in resultSet:
                                     imported = True
                                 loop = loop + 1 if not imported else len(domain)
@@ -109,9 +109,9 @@ class Import:
                                 else:
                                     computer = user+"."+domain[loop]
                                 if "aad3b435b51404eeaad3b435b51404ee" not in lm_hash:
-                                    resultSet,session = driver.query('MATCH (c:Computer) where c.name = "'+computer.upper()+'" SET c.lm = True, u.ntlm = "'+ntlm_hash+'" RETURN c.name as name')
+                                    resultSet,session = driver.query('MATCH (c:Computer) where c.name = "'+computer.upper()+'" SET c.lm = True, c.ntlm = "'+ntlm_hash+'" RETURN c.name as name')
                                 else:
-                                    resultSet,session = driver.query('MATCH (c:Computer) where c.name = "'+computer.upper()+'" SET c.lm = False, u.ntlm = "'+ntlm_hash+'" RETURN c.name as name')
+                                    resultSet,session = driver.query('MATCH (c:Computer) where c.name = "'+computer.upper()+'" SET c.lm = False, c.ntlm = "'+ntlm_hash+'" RETURN c.name as name')
                                 for record in resultSet:
                                     imported = True
                                 loop = loop + 1 if not imported else len(domain)
